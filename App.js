@@ -1,13 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import HeaderContainer from './src/containers/HeaderContainer';
+import { configureStore } from './src/state/store';
+
+const initialState = {};
+
+const store = configureStore(initialState);
 
 export default function App() {
-  console.log('Hola como es');
   return (
-    <View style={styles.container}>
-      <Text>Itunes API APP</Text>
-    </View>
+    <Provider store={store}>
+      <HeaderContainer/>
+    </Provider>
   );
 }
 
