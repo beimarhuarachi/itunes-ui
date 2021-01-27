@@ -3,6 +3,7 @@ import rootReducer from "./root.reducer";
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from "./rootSaga";
 
+import watchFetchItunesRequest from './sagas/itunesItems.sagas';
 
 export function configureStore(initialState = {}) {
   const sagaMiddleware = createSagaMiddleware();
