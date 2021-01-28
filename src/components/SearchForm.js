@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Keyboard, StyleSheet, View } from 'react-native';
 import { Searchbar, Button } from 'react-native-paper';
 
 export const SearchForm = ({ onSubmit }) => {
@@ -9,6 +9,7 @@ export const SearchForm = ({ onSubmit }) => {
       searchTerm: '',
     },
     onSubmit: (value) => {
+      Keyboard.dismiss();
       onSubmit({ term: value.searchTerm });
     },
   });
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   input: {
   },
   action: {
-    paddingTop: 15,
+    paddingTop: 8,
     paddingLeft: 15,
     width: 150
   }
