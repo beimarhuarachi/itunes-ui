@@ -3,6 +3,7 @@ import { View, ActivityIndicator, Text, FlatList, Image, TouchableOpacity, Style
 import { Card, Portal, Button, Dialog, Paragraph } from 'react-native-paper';
 import { Audio } from 'expo-av';
 import { NoResultsFound } from './NoResultsFound';
+import NativeToastModule, { ToastDuration } from '../nativeModules/toast.module';
 
 function getCardHeaderContent(item) {
   if (!item.trackName) {
@@ -50,6 +51,7 @@ export const ResultsList = ({ itunesItems }) => {
       { shouldPlay: true }
     );
     setSound(sound);
+    NativeToastModule.showToast(`Playing: ${itemSelected.trackName}`, ToastDuration.LONG);
     await sound.playAsync();
   }
 

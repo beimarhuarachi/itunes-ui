@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { Keyboard, StyleSheet, View } from 'react-native';
 import { Searchbar, Button } from 'react-native-paper';
+import NativeToastModule, { ToastDuration } from '../nativeModules/toast.module';
 
 export const SearchForm = ({ onSubmit }) => {
   const formik = useFormik({
@@ -9,6 +10,7 @@ export const SearchForm = ({ onSubmit }) => {
       searchTerm: '',
     },
     onSubmit: (value) => {
+      NativeToastModule.showToast(`You searched: ${value.searchTerm}`, ToastDuration.SHORT);
       Keyboard.dismiss();
       onSubmit({ term: value.searchTerm });
     },
