@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const ITUNES_API = ' https://itunes.apple.com/search';
+export const ITUNES_API = 'https://itunes.apple.com/search';
 
 
 export function searchItunesItems(searchTerm = '', limit = 25) {
